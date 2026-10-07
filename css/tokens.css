@@ -1,0 +1,31 @@
+:root {
+  --bg: #06070b;
+  --bg-soft: #0a0c12;
+  --panel: rgba(10, 13, 20, .88);
+  --surface: rgba(255,255,255,.035);
+  --text: #f3f7fb;
+  --muted: #8c98a8;
+  --dim: #4c5665;
+  --line: rgba(150, 170, 190, .16);
+  --line-strong: rgba(150, 170, 190, .28);
+  --neon: #00eaff;
+  --neon-2: #7c5cff;
+  --danger: #ff3d81;
+  --container: 1240px;
+  --gutter: clamp(18px, 4vw, 64px);
+  --section-y: clamp(88px, 11vw, 160px);
+  --radius: 2px;
+  --ease: cubic-bezier(.16, 1, .3, 1);
+  --fast: 180ms;
+  --normal: 360ms;
+  --slow: 700ms;
+  --header-h: 76px;
+  --z-canvas: 0;
+  --z-content: 2;
+  --z-header: 50;
+  --z-cursor: 100;
+  --z-toast: 110;
+}
+
+html[data-palette="violet"] { --neon: #a978ff; --neon-2: #ff4fd8; }
+html[data-palette="lime"] { --neon: #b6ff3d; --neon-2: #00eaff; }

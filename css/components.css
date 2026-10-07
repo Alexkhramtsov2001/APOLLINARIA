@@ -1,0 +1,226 @@
+/* ==========================================================
+   COMPONENTS — iteration 2
+   Reusable UI states live here; section geometry stays in layout.css.
+   ========================================================== */
+
+.button,
+.icon-button,
+.lang-button,
+.menu-button,
+.mobile-menu__lang,
+.contact-card {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.button:focus-visible,
+.icon-button:focus-visible,
+.lang-button:focus-visible,
+.menu-button:focus-visible,
+.mobile-menu a:focus-visible,
+.mobile-menu__lang:focus-visible,
+.site-nav__link:focus-visible,
+.contact-card:focus-visible,
+.brand:focus-visible {
+  outline: 2px solid var(--neon);
+  outline-offset: 4px;
+}
+
+/* Mobile menu icon: keep the hamburger/X visible even when browser button defaults differ. */
+.menu-button[aria-expanded="true"] .menu-icon__line--1 { transform: translateY(6px) rotate(45deg); }
+.menu-button[aria-expanded="true"] .menu-icon__line--2 { opacity: 0; }
+.menu-button[aria-expanded="true"] .menu-icon__line--3 { transform: translateY(-6px) rotate(-45deg); }
+
+.menu-open { overflow: hidden; }
+
+.mobile-menu {
+  border-top: 0;
+  box-shadow: 0 24px 60px rgba(0,0,0,.28);
+}
+
+.mobile-menu__nav a {
+  position: relative;
+  color: var(--text);
+  transition: color var(--fast) ease, padding-left var(--normal) var(--ease);
+}
+
+.mobile-menu__nav a:hover,
+.mobile-menu__nav a:focus-visible {
+  color: var(--neon);
+  padding-left: 8px;
+}
+
+.mobile-menu__lang {
+  color: var(--muted);
+  cursor: pointer;
+  transition: color var(--fast) ease, border-color var(--fast) ease;
+}
+
+.mobile-menu__lang:hover { color: var(--neon); border-color: var(--neon); }
+
+.skill-card,
+.project-card,
+.contact-card {
+  position: relative;
+  isolation: isolate;
+}
+
+.skill-card::before,
+.project-card::before,
+.contact-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, rgba(0,234,255,.055), transparent 42%);
+  opacity: 0;
+  transition: opacity var(--normal) ease;
+  pointer-events: none;
+}
+
+.skill-card:hover::before,
+.project-card:hover::before,
+.contact-card:hover::before { opacity: 1; }
+
+.skill-card__icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin-top: 34px;
+  border: 1px solid var(--line-strong);
+  color: var(--neon);
+  font: 700 .62rem/1 ui-monospace, monospace;
+  transition: transform var(--normal) var(--ease), border-color var(--normal) ease;
+}
+
+.skill-card:hover .skill-card__icon {
+  transform: translateY(-3px) rotate(-4deg);
+  border-color: var(--neon);
+}
+
+.skill-card h3 { margin-top: 22px; }
+
+.project-card { transition: transform var(--normal) var(--ease), border-color var(--normal) ease; }
+.project-card:hover { transform: translateY(-6px); border-color: rgba(0,234,255,.45); }
+
+.project-card__visual { position: relative; overflow: hidden; }
+.project-card__placeholder { position: relative; z-index: 1; text-shadow: 0 0 28px rgba(0,234,255,.3); }
+.project-card__scan {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(to bottom, transparent 0 5px, rgba(0,234,255,.035) 6px);
+  pointer-events: none;
+}
+
+.project-card:nth-child(2) .project-card__visual {
+  background: radial-gradient(circle at 50% 50%, rgba(124,92,255,.18), transparent 42%), #080a10;
+}
+.project-card:nth-child(3) .project-card__visual {
+  background: radial-gradient(circle at 50% 50%, rgba(255,61,129,.12), transparent 42%), #080a10;
+}
+
+.toolset__list span {
+  transition: color var(--fast) ease;
+}
+.toolset__list span:hover { color: var(--neon); }
+
+.contact-card { text-decoration: none; }
+.contact-card small { overflow-wrap: anywhere; }
+
+.toast { border-left-width: 3px; }
+
+@media (max-width: 760px) {
+  .skill-card__icon { margin-top: 24px; }
+  .toolset { display: grid; gap: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-card,
+  .project-card,
+  .contact-card,
+  .skill-card__icon,
+  .mobile-menu__nav a { transition: none; }
+}
+
+/* Iteration 3 — interactive feature states */
+.scroll-progress span {
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
+}
+
+[data-reveal].is-visible {
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .typewriter-active::after { animation: none; }
+  .scroll-progress span { will-change: auto; }
+}
+
+/* ── Canvas / cursor ───────────────────────────────────────── */
+.bg-canvas { transition: opacity 400ms ease; }
+
+.cursor { opacity: 0; transition: opacity 160ms ease; }
+.cursor.is-visible { opacity: 1; }
+.cursor__dot,
+.cursor__ring,
+.cursor__label { will-change: transform; }
+.cursor__dot { transition: transform 80ms linear; }
+.cursor__ring { transition: width 180ms ease, height 180ms ease, border-color 180ms ease, opacity 180ms ease; }
+.cursor__label { border: 1px solid color-mix(in srgb, var(--neon) 55%, transparent); background: rgba(6, 7, 11, .82); letter-spacing: .12em; white-space: nowrap; }
+.cursor__label.is-visible { opacity: 1; }
+.cursor.is-hovering .cursor__ring { width: 44px; height: 44px; border-color: var(--neon); }
+.cursor.is-hovering .cursor__dot { transform: translate(-50%, -50%) scale(.72); }
+
+@media (pointer: coarse) {
+  .cursor { display: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-canvas { display: none; }
+  .cursor { display: none !important; }
+}
+
+/* Hide the native cursor only while the custom cursor is available. */
+@media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  html.has-custom-cursor,
+  html.has-custom-cursor body,
+  html.has-custom-cursor a,
+  html.has-custom-cursor button { cursor: none; }
+}
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  html.has-custom-cursor, html.has-custom-cursor body { cursor: auto; }
+}
+
+.noscript-message { position: fixed; inset: auto 16px 16px; z-index: 999; padding: 14px 18px; background: var(--bg-soft); color: var(--text); border: 1px solid var(--line-strong); }
+
+/* Selected palette indicator */
+.palette-button {
+  padding: 0;
+  display: grid;
+  place-items: center;
+  line-height: 0;
+}
+
+.palette-swatch {
+  display: block;
+  width: 24px;
+  height: 14px;
+  border: 1px solid var(--line-strong);
+  background: linear-gradient(90deg, var(--neon) 0 50%, var(--neon-2) 50% 100%);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--neon) 28%, transparent);
+  transition: transform var(--fast) ease, box-shadow var(--fast) ease, border-color var(--fast) ease;
+}
+
+.palette-button:hover .palette-swatch,
+.palette-button:focus-visible .palette-swatch {
+  transform: scale(1.08);
+  border-color: var(--neon);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--neon) 42%, transparent);
+}
+
+@supports not (background: color-mix(in srgb, red 50%, transparent)) {
+  .palette-swatch { box-shadow: none; }
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alexkhramtsov2001.github.io/APOLLINARIA/sitemap.xml

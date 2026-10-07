@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ru" data-palette="cyan">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="./assets/icons/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/favicon-180.png">
+  <link rel="canonical" href="https://alexkhramtsov2001.github.io/APOLLINARIA/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Портфолио Аполлинарии Воробьевой — графический и моушн-дизайн: брендинг, полиграфия, motion design, digital и социальные сети.">
+  <meta name="author" content="Аполлинария Воробьева">
+  <meta name="theme-color" content="#080a0e">
+  <meta name="robots" content="index, follow">
+  <meta name="format-detection" content="telephone=no">
+  <meta property="og:title" content="АПОЛЛИНАРИЯ // GRAPHIC & MOTION">
+  <meta property="og:description" content="Портфолио графического и моушн-дизайнера.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Аполлинария Воробьева — Graphic & Motion">
+  <meta property="og:image" content="https://alexkhramtsov2001.github.io/APOLLINARIA/assets/images/seo/og-cover.jpg">
+  <meta property="og:image:alt" content="Портфолио Аполлинарии Воробьевой — Graphic / Motion Design">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="АПОЛЛИНАРИЯ // GRAPHIC & MOTION">
+  <meta name="twitter:description" content="Портфолио графического и моушн-дизайнера.">
+  <meta name="twitter:image" content="https://alexkhramtsov2001.github.io/APOLLINARIA/assets/images/seo/og-cover.jpg">
+  <title>АПОЛЛИНАРИЯ // GRAPHIC & MOTION</title>
+  <link rel="stylesheet" href="./css/tokens.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/visual-polish.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+  <style>@media (max-width: 760px){.site-header__actions > #paletteButton{display:none !important;}}</style>
+  <script type="module" src="./js/main.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Аполлинария Воробьева",
+    "jobTitle": "Графический и моушн-дизайнер",
+    "description": "Графический и моушн-дизайнер. Направления: брендинг, полиграфия, motion design, digital и социальные сети.",
+    "image": "https://alexkhramtsov2001.github.io/APOLLINARIA/assets/images/about/about-photo.jpg",
+    "email": "mailto:apollinaria.vorobeva2005@gmail.com",
+    "sameAs": [
+      "https://instagram.com/apollirussss"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Перейти к содержимому</a>
+
+  <canvas class="bg-canvas" id="bgCanvas" aria-hidden="true"></canvas>
+  <div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span><span class="cursor__label" id="cursorLabel"></span></div>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container site-header__inner">
+      <nav class="site-nav" id="siteNav" aria-label="Основная навигация" data-i18n-aria-label="a11y.mobileNav">
+        <a class="site-nav__link is-active" href="#home" data-nav-link data-i18n="nav.home">Главная</a>
+        <a class="site-nav__link" href="#about" data-nav-link data-i18n="nav.about">Обо мне</a>
+        <a class="site-nav__link" href="#skills" data-nav-link data-i18n="nav.skills">Навыки</a>
+        <a class="site-nav__link" href="#work" data-nav-link data-i18n="nav.work">Работы</a>
+        <a class="site-nav__link" href="#process" data-nav-link data-i18n="nav.process">Процесс</a>
+        <a class="site-nav__link" href="#contact" data-nav-link data-i18n="nav.contact">Контакты</a>
+      </nav>
+
+      <div class="site-header__actions">
+        <button class="icon-button palette-button" type="button" id="paletteButton" aria-label="Сменить палитру" aria-describedby="paletteHint"><span class="palette-swatch" aria-hidden="true"></span></button>
+        <span class="sr-only" id="paletteHint">Цветовая палитра интерфейса</span>
+        <button class="lang-button" type="button" id="languageButton" aria-label="Переключить язык">EN</button>
+        <button class="menu-button" type="button" id="menuButton" aria-label="Открыть меню" data-i18n-aria-label="a11y.menuOpen" aria-expanded="false" aria-controls="mobileMenu">
+          <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path class="menu-icon__line menu-icon__line--1" d="M3 6h18"/>
+            <path class="menu-icon__line menu-icon__line--2" d="M3 12h18"/>
+            <path class="menu-icon__line menu-icon__line--3" d="M3 18h18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-labelledby="mobileMenuTitle" hidden>
+      <h2 class="sr-only" id="mobileMenuTitle" data-i18n="a11y.mobileMenu">Навигация</h2>
+      <nav class="mobile-menu__nav" aria-label="Мобильная навигация" data-i18n-aria-label="a11y.mainNav">
+        <a href="#home" data-nav-link data-i18n="nav.home">Главная</a>
+        <a href="#about" data-nav-link data-i18n="nav.about">Обо мне</a>
+        <a href="#skills" data-nav-link data-i18n="nav.skills">Навыки</a>
+        <a href="#work" data-nav-link data-i18n="nav.work">Работы</a>
+        <a href="#process" data-nav-link data-i18n="nav.process">Процесс</a>
+        <a href="#contact" data-nav-link data-i18n="nav.contact">Контакты</a>
+      </nav>
+      <div class="mobile-menu__controls" aria-label="Настройки интерфейса">
+        <button class="mobile-menu__control mobile-menu__palette" type="button" id="mobilePaletteButton" aria-label="Сменить палитру"><span class="palette-swatch" aria-hidden="true"></span></button>
+        <button class="mobile-menu__control mobile-menu__lang" type="button" id="mobileLanguageButton">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="hero" id="home" data-section="home" aria-labelledby="heroTitle">
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="hero__orb hero__orb--one" aria-hidden="true"></div>
+      <div class="hero__orb hero__orb--two" aria-hidden="true"></div>
+      <div class="hero__content container">
+        <p class="eyebrow hero__status"><span class="status-dot"></span><span data-i18n="hero.status">СИСТЕМА АКТИВНА · ЧЕЛЯБИНСК</span></p>
+        <p class="hero__code" aria-hidden="true">&gt; init portfolio.exe<br>&gt; load /design/motion<br>&gt; ready_to_create_</p>
+        <h1 class="hero__title" id="heroTitle" data-glitch data-i18n="hero.name">Аполлинария Воробьева</h1>
+        <p class="hero__role" data-i18n="hero.role">Графический и моушн-дизайнер</p>
+        <p class="hero__tagline" data-i18n="hero.tagline">Дизайн в движении — от статичного макета до ожившей анимации.</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#work" data-cursor-label="OPEN"><span data-i18n="hero.cta_work">Смотреть работы</span><span aria-hidden="true">→</span></a>
+          <a class="button button--ghost" href="#contact" data-cursor-label="OPEN" data-i18n="hero.cta_contact">Связаться</a>
+        </div>
+      </div>
+      <div class="marquee hero__marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <div class="marquee__group"><span>DESIGN</span><b>◆</b><span>MOTION</span><b>◆</b><span>BRANDING</span><b>◆</b><span>VISUALS</span><b>◆</b><span>DIGITAL</span><b>◆</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about" data-section="about" aria-labelledby="aboutTitle">
+      <div class="container">
+        <header class="section-heading" data-reveal>
+          <span class="section-heading__number">01</span>
+          <div><h2 id="aboutTitle" data-glitch data-i18n="about.title">Обо мне</h2><p data-i18n="about.sub">Коротко о подходе, опыте и направлении развития.</p></div>
+        </header>
+        <div class="about-grid">
+          <figure class="portrait" data-reveal><img class="portrait__image" src="./assets/images/about/about-photo.jpg" alt="Аполлинария — графический и моушн-дизайнер" loading="lazy" decoding="async"><div class="portrait__fallback" aria-hidden="true">AV</div><span class="portrait__scan" aria-hidden="true"></span></figure>
+          <div class="about-copy">
+            <p data-reveal data-i18n="about.p1">Меня зовут Аполлинария. Я развиваюсь в графическом и моушн-дизайне и люблю превращать статичные идеи в выразительный визуальный образ.</p>
+            <p data-reveal data-i18n="about.p2">Во время обучения работала с полиграфией: готовила макеты к печати, проверяла файлы и учитывала технические требования.</p>
+            <p data-reveal data-i18n="about.p3">Сейчас основной фокус — визуальная айдентика, анимация логотипов и digital-контент.</p>
+            <div class="stats" data-reveal>
+              <div><strong>5+</strong><span data-i18n="about.stat1">инструментов</span></div>
+              <div><strong>3</strong><span data-i18n="about.stat2">года обучения</span></div>
+              <div><strong>10+</strong><span data-i18n="about.stat3">учебных и заказных работ</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--panel" id="skills" data-section="skills" aria-labelledby="skillsTitle">
+      <div class="container">
+        <header class="section-heading" data-reveal><span class="section-heading__number">02</span><div><h2 id="skillsTitle" data-glitch data-i18n="skills.title">Навыки</h2><p data-i18n="skills.sub">Направления работы и инструменты, которые используются в проектах.</p></div></header>
+        <div class="skills-grid" data-skills></div>
+        <div class="toolset" data-reveal><span class="toolset__label" data-i18n="skills.toolsLabel">TOOLS /</span><div class="toolset__list" data-tools></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="work" data-section="work" aria-labelledby="workTitle">
+      <div class="container">
+        <header class="section-heading" data-reveal><span class="section-heading__number">03</span><div><h2 id="workTitle" data-glitch data-i18n="work.title">Работы</h2><p data-i18n="work.sub">Сейчас портфолио готовится к наполнению реальными кейсами.</p></div></header>
+        <div class="projects-grid" data-projects></div>
+      </div>
+    </section>
+
+    <section class="section section--panel" id="process" data-section="process" aria-labelledby="processTitle">
+      <div class="container">
+        <header class="section-heading" data-reveal><span class="section-heading__number">04</span><div><h2 id="processTitle" data-glitch data-i18n="process.title">Процесс</h2><p data-i18n="process.sub">Понятная последовательность от задачи до готового результата.</p></div></header>
+        <ol class="process-grid">
+          <li class="process-card process-card--brief" data-reveal>
+            <span class="process-card__number">01</span>
+            <div class="process-card__visual" aria-hidden="true"><i></i><b></b><em></em><span></span></div>
+            <h3 data-i18n="process.s1.title">Задача</h3>
+            <p data-i18n="process.s1.desc">Разбираю цель, формат, ограничения и пожелания.</p>
+          </li>
+          <li class="process-card process-card--concept" data-reveal>
+            <span class="process-card__number">02</span>
+            <div class="process-card__visual" aria-hidden="true"><i></i><b></b><em></em><span></span></div>
+            <h3 data-i18n="process.s2.title">Концепция</h3>
+            <p data-i18n="process.s2.desc">Собираю референсы и определяю визуальное направление.</p>
+          </li>
+          <li class="process-card process-card--design" data-reveal>
+            <span class="process-card__number">03</span>
+            <div class="process-card__visual" aria-hidden="true"><i></i><b></b><em></em><span></span></div>
+            <h3 data-i18n="process.s3.title">Дизайн</h3>
+            <p data-i18n="process.s3.desc">Создаю макет, проверяю детали и вношу правки.</p>
+          </li>
+          <li class="process-card process-card--motion" data-reveal>
+            <span class="process-card__number">04</span>
+            <div class="process-card__visual" aria-hidden="true"><i></i><b></b><em></em><span></span></div>
+            <h3 data-i18n="process.s4.title">Анимация</h3>
+            <p data-i18n="process.s4.desc">Если проект требует движения, оживляю графику в After Effects.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section--contact" id="contact" data-section="contact" aria-labelledby="contactTitle">
+      <div class="container">
+        <header class="section-heading" data-reveal><span class="section-heading__number">05</span><div><h2 id="contactTitle" data-glitch data-i18n="contact.title">Обсудим проект?</h2><p data-i18n="contact.sub">Открыта для предложений о работе, стажировке и частных заказах.</p></div></header>
+        <div class="contacts-grid">
+          <a class="contact-card" href="https://t.me/apollonil" target="_blank" rel="noopener noreferrer" data-cursor-label="OPEN" data-reveal>
+            <span class="contact-card__number">01</span>
+            <span class="contact-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21.5 3.8 18.4 19c-.2 1.1-.8 1.4-1.7.9l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.8 8.7-7.9c.4-.4-.1-.6-.6-.2L6.4 13.2l-4.6-1.5c-1-.3-1-1 .2-1.5L20 3c.9-.3 1.7.2 1.5.8Z"/></svg></span>
+            <strong>TELEGRAM</strong><small>@apollonil</small>
+          </a>
+          <button class="contact-card" type="button" data-copy-email="apollinaria.vorobeva2005@gmail.com" data-cursor-label="COPY" data-reveal>
+            <span class="contact-card__number">02</span>
+            <span class="contact-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.5 5.5h17v13h-17z"/><path d="m4 6 8 6 8-6"/></svg></span>
+            <strong>EMAIL</strong><small>apollinaria.vorobeva2005@gmail.com</small>
+          </button>
+          <a class="contact-card" href="https://instagram.com/apollirussss" target="_blank" rel="noopener noreferrer" data-cursor-label="OPEN" data-reveal>
+            <span class="contact-card__number">03</span>
+            <span class="contact-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+            <strong>INSTAGRAM</strong><small>@apollirussss</small>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container site-footer__inner"><span data-i18n="footer.copyright">© 2026 Аполлинария Воробьева</span><span><i class="status-dot"></i> <span class="site-footer__online-label" data-i18n="footer.online">ONLINE</span></span><span>GRAPHIC / MOTION</span></div></footer>
+  <noscript><div class="noscript-message" data-i18n="noscript">Для полной работы интерактивного портфолио включите JavaScript.</div></noscript>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
