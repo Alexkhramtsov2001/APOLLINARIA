@@ -1,0 +1,590 @@
+/* ==========================================================
+   RESPONSIVE — iteration 5
+   Mobile-first corrections for narrow, landscape and touch layouts.
+   ========================================================== */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  overflow-x: clip;
+}
+
+/* Touch targets: keep controls comfortable without making the desktop UI bulky. */
+@media (pointer: coarse) {
+  .icon-button,
+  .lang-button,
+  .menu-button,
+  .mobile-menu__lang {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .site-nav__link,
+  .mobile-menu__nav a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .button {
+    min-height: 50px;
+  }
+}
+
+/* Tablet / small laptop */
+@media (max-width: 1000px) {
+  .container {
+    width: min(100% - 40px, var(--container));
+  }
+
+  .site-header__inner {
+    gap: 18px;
+  }
+
+  .hero {
+    padding-bottom: 32px;
+  }
+
+  .hero__title {
+    max-width: 880px;
+  }
+
+  .about-grid {
+    gap: clamp(32px, 6vw, 72px);
+  }
+}
+
+/* Main mobile breakpoint */
+@media (max-width: 760px) {
+  :root {
+    --header-h: 64px;
+    --gutter: 18px;
+    --section-y: clamp(72px, 16vw, 104px);
+  }
+
+  .container {
+    width: min(100% - (var(--gutter) * 2), var(--container));
+  }
+
+  .site-header {
+    background: rgba(6, 7, 11, .9);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+
+  .site-header__inner {
+    gap: 12px;
+  }
+
+  .site-header__actions {
+    margin-left: auto;
+  }
+
+  .site-nav {
+    display: none;
+  }
+
+  .menu-button {
+    display: grid;
+    place-items: center;
+  }
+
+  .mobile-menu {
+    display: block;
+    position: absolute;
+    inset: var(--header-h) 0 auto;
+    z-index: calc(var(--z-header) - 1);
+    max-height: calc(100svh - var(--header-h));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 18px var(--gutter) max(28px, env(safe-area-inset-bottom));
+    background: rgba(6, 7, 11, .98);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, .45);
+  }
+
+  .mobile-menu[hidden] {
+    display: none;
+  }
+
+  .mobile-menu__nav a {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 14px 0;
+    font-size: 1rem;
+  }
+
+  .hero {
+    height: 100svh;
+    min-height: 0;
+    grid-template-rows: minmax(0, 1fr);
+    row-gap: 0;
+    padding: calc(var(--header-h) + 46px) 0 24px;
+    align-items: center;
+  }
+
+  /* Keep the marquee out of the hero grid so Safari cannot redistribute
+     the 1fr row when its browser chrome changes during scroll. */
+  .hero__marquee {
+    position: absolute;
+    right: 0;
+    bottom: 24px;
+    left: 0;
+  }
+
+  .hero__grid {
+    opacity: .18;
+    background-size: 44px 44px;
+  }
+
+  .hero__orb {
+    filter: blur(42px);
+    opacity: .1;
+  }
+
+  .hero__orb--one {
+    width: 240px;
+    height: 240px;
+    right: -90px;
+  }
+
+  .hero__orb--two {
+    width: 190px;
+    height: 190px;
+    bottom: 4%;
+    left: -80px;
+  }
+
+  .hero__status {
+    margin-bottom: 18px;
+    font-size: .58rem;
+    line-height: 1.5;
+  }
+
+  .hero__title {
+    max-width: 100%;
+    font-size: clamp(2.75rem, 14vw, 5.4rem);
+    line-height: .9;
+    letter-spacing: -.055em;
+    overflow-wrap: anywhere;
+  }
+
+  .hero__role {
+    margin-top: 22px;
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  .hero__tagline {
+    max-width: 34rem;
+    margin-top: 10px;
+    font-size: .9rem;
+    line-height: 1.55;
+  }
+
+  .hero__actions {
+    width: 100%;
+    margin-top: 26px;
+  }
+
+  .hero__actions .button {
+    flex: 1 1 180px;
+  }
+
+  .hero__meta {
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    margin-top: 36px;
+    font-size: .56rem;
+  }
+
+  .hero__scroll {
+    display: none;
+  }
+
+  .marquee {
+    padding-block: 1rem;
+  }
+
+  .section {
+    scroll-margin-top: calc(var(--header-h) + 16px);
+  }
+
+  .section__inner {
+    width: 100%;
+  }
+
+  .section-heading {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .section-heading__number {
+    font-size: .62rem;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(2rem, 10vw, 3.3rem);
+    line-height: .95;
+  }
+
+  .section-heading p:not(.eyebrow) {
+    max-width: 34rem;
+    font-size: .86rem;
+    line-height: 1.55;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .portrait {
+    width: min(100%, 420px);
+    justify-self: center;
+  }
+
+  .about-copy p {
+    font-size: .92rem;
+    line-height: 1.7;
+  }
+
+  .stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .stats > div { padding: 14px 10px; }
+  .stats strong { font-size: 1.25rem; }
+
+  .skills-grid,
+  .projects-grid,
+  .process-grid,
+  .contacts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-card,
+  .project-card,
+  .process-grid li,
+  .contact-card {
+    min-width: 0;
+  }
+
+  .skill-card {
+    min-height: 0;
+    padding-bottom: 24px;
+  }
+
+  .project-card__visual {
+    aspect-ratio: 16 / 10;
+  }
+
+  .project-card__body {
+    padding: 18px;
+  }
+
+  .process-grid li {
+    min-height: 0;
+  }
+
+  .process-grid h3 {
+    margin-top: 42px;
+  }
+
+  .contact-card {
+    min-height: 110px;
+  }
+
+  .site-footer__inner {
+    min-height: 0;
+    padding: 24px 0 max(24px, env(safe-area-inset-bottom));
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .toast {
+    right: var(--gutter);
+    bottom: max(18px, env(safe-area-inset-bottom));
+    left: var(--gutter);
+    max-width: none;
+  }
+}
+
+/* Very narrow phones: prevent oversized controls and awkward 3-column stats. */
+@media (max-width: 380px) {
+  :root {
+    --gutter: 15px;
+  }
+
+  .hero {
+    padding-top: calc(var(--header-h) + 34px);
+  }
+
+  .hero__title {
+    font-size: clamp(2.45rem, 13.5vw, 4rem);
+  }
+
+  .hero__actions {
+    flex-direction: column;
+  }
+
+  .hero__actions .button {
+    width: 100%;
+    flex-basis: 50px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+  .stats > div { display: grid; grid-template-columns: auto 1fr; align-items: baseline; gap: 10px; }
+  .stats strong { margin: 0; }
+}
+
+/* Landscape phones: use the available width rather than a tall hero. */
+@media (max-width: 900px) and (orientation: landscape) and (max-height: 560px) {
+  .hero {
+    min-height: auto;
+    row-gap: 24px;
+    padding-top: calc(var(--header-h) + 34px);
+    padding-bottom: 24px;
+  }
+
+  .hero__title {
+    max-width: 760px;
+    font-size: clamp(2.8rem, 9vw, 5rem);
+  }
+
+  .hero__meta {
+    margin-top: 28px;
+  }
+}
+
+/* Avoid expensive glass effects on touch devices. */
+@media (pointer: coarse) and (max-width: 760px) {
+  .site-header,
+  .section--panel {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .section--panel {
+    background: rgba(10, 13, 20, .96);
+  }
+}
+
+/* Reduced motion remains the highest-priority accessibility override. */
+@media (prefers-reduced-motion: reduce) {
+  .hero__orb,
+  .hero__grid { animation-duration: 22s; }
+
+  .button:hover,
+  .project-card:hover,
+  .contact-card:hover,
+  .skill-card:hover .skill-card__icon {
+    transform: none !important;
+  }
+}
+
+/* Final mobile control alignment */
+@media (max-width: 760px) {
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero__actions .button {
+    width: 100%;
+    flex: 0 0 50px;
+  }
+
+  .hero__actions .button--primary {
+    position: relative;
+    justify-content: center;
+  }
+
+  .hero__actions .button--primary > span:first-child {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  .hero__actions .button--primary > span:last-child {
+    position: absolute;
+    right: 20px;
+  }
+
+  .mobile-menu__lang {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    min-height: 44px;
+    aspect-ratio: 1 / 1;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    justify-self: start;
+    line-height: 1;
+  }
+}
+
+/* Mobile header keeps only the menu trigger. Palette/language controls live at the
+   bottom of the opened menu. The desktop brand mark is hidden on mobile. */
+@media (max-width: 760px) {
+  .brand { display: none; }
+
+  .site-header__actions > #paletteButton,
+  .site-header__actions > #languageButton,
+  .site-header__actions > #paletteButton,
+  .site-header__actions > #paletteHint {
+    display: none;
+  }
+
+  .mobile-menu__controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 4px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+  }
+
+  .mobile-menu__control {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    min-height: 44px;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--muted);
+    font: 700 .7rem/1 ui-monospace, monospace;
+    cursor: pointer;
+  }
+
+
+  .mobile-menu__control:hover,
+  .mobile-menu__control:focus-visible {
+    color: var(--neon);
+    border-color: var(--neon);
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    padding-bottom: 24px;
+  }
+
+  .hero__marquee .marquee__track {
+    padding-block: 13px;
+  }
+}
+
+
+/* Desktop hero CTA sizing: both actions are intentionally equal and larger. */
+@media (min-width: 761px) {
+  .hero__actions .button {
+    flex: 0 0 220px;
+    width: 220px;
+    min-height: 56px;
+    height: 56px;
+    padding-inline: 22px;
+  }
+}
+
+
+/* ==========================================================
+   FINAL CONTROL / MENU GEOMETRY
+   These rules intentionally override earlier responsive rules.
+   ========================================================== */
+.palette-button {
+  position: relative;
+  display: grid !important;
+  place-items: center !important;
+  align-items: center !important;
+  justify-items: center !important;
+  padding: 0 !important;
+  text-align: center;
+  line-height: 0;
+}
+.palette-button .palette-swatch {
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 14px;
+  margin: 0;
+  flex: 0 0 24px;
+}
+
+@media (max-width: 760px) {
+  .menu-button {
+    position: relative;
+    display: grid !important;
+    place-items: center !important;
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 0 !important;
+    margin: 0;
+    overflow: visible !important;
+  }
+
+  .menu-icon {
+    width: 24px !important;
+    height: 24px !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  .mobile-menu {
+    position: fixed !important;
+    top: var(--header-h) !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    max-height: none !important;
+    height: calc(100dvh - var(--header-h)) !important;
+    display: block !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    padding: 18px var(--gutter) max(28px, env(safe-area-inset-bottom)) !important;
+    box-sizing: border-box !important;
+    z-index: calc(var(--z-header) + 1) !important;
+  }
+
+  .mobile-menu[hidden] { display: none !important; }
+
+  .mobile-menu__nav {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+  }
+
+  .mobile-menu__nav a {
+    display: flex !important;
+    width: 100% !important;
+    min-height: 52px;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  .mobile-menu__controls {
+    display: flex !important;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
+
+
+@media (max-width: 760px) {
+  .mobile-menu__palette .palette-swatch {
+    display: block;
+    width: 24px;
+    height: 14px;
+    margin: 0;
+  }
+}
